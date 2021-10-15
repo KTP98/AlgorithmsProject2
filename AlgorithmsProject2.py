@@ -1,5 +1,6 @@
 
 
+
 import time
 import random
 import sys
@@ -90,7 +91,7 @@ def bubble_sort(arr):
 
 
 sys.setrecursionlimit(10000)
-# Reason for setrecersonlimit is that, python (spyder) only allows 1000 elements
+# Reason for setrecersonlimit is that, python (spyder) only allows around 1000 elements
 # when calling for worst case on quicksort. 
 
 # Quick Sort
@@ -158,10 +159,9 @@ def randomArray(size, type = 'd'):
 # The array could be: random, sorted, sorted reversed, or merge worst case
 # Test could have runtimes of O(n log n) 
 # Output: list exection & comparison times for each test
-# In order for quick sort work properly lower length from 100 to 1 - 10.
 def testing(sortFunction, arrayType, tests = 3):
     
-    length = 100  # the size of the array. 
+    length = 10^6 # the size of the array. 
     comparisons = []  
     elapsedTime = []
     for i in range(tests):
@@ -195,13 +195,13 @@ def main():
     write_file('mergesort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
     print("\n==== Merge Sort best case tests.   Time Complexity Ω(n log (n)) - Sorted array ====")
-    comps, elapsedTime = testing(mergeSort, 's', 5)
+    comps, elapsedTime = testing(mergeSort, 's')
     
     write_file('mergesort-best-compares.txt', comps)
     write_file('mergesort-best-elapsedtimes.txt', elapsedTime, "%f\n")
     
     print("\n==== Merge Sort worst case tests.   Time Complexity O(n log (n)) - merge worst arrary ====")
-    comps, elapsedTime = testing(mergeSort, 'm', 5)
+    comps, elapsedTime = testing(mergeSort, 'm')
     
     write_file('mergesort-worst-compares.txt', comps)
     write_file('mergesort-worst-elapsedtimes.txt', elapsedTime, "%f\n")
@@ -213,17 +213,18 @@ def main():
     write_file('bublesort-avg-compares.txt', comps)
     write_file('bublesort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Bubble Sort best case tests.  Time Complexity Ω(n) - Sorted array ====")
+    print("\n**** Bubble Sort best case tests. - Sorted array ****")
     comps, elapsedTime = testing(bubble_sort, 's')
     
     write_file('bublesort-best-compares.txt', comps)
     write_file('bublesort-best-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Bubble Sort worst case test.    Time Complexity O(n^2) - Sorted reversed array ====")
+    print("\n**** Bubble Sort worst case test. - Sorted reversed array ****")
     comps, elapsedTime = testing(bubble_sort, 'r')
     
     write_file('bublesort-worst-compares.txt', comps)
     write_file('bublesort-worst-elapsedtimes.txt', elapsedTime, "%f\n")
+
 
 #Insertion
     print("\n==== Insertion Sort average case tests.   Time Complexity Θ(n^2) - Sorted arrray ====")
@@ -245,13 +246,13 @@ def main():
     write_file('insertionsort-worst-elapsedtimes.txt', elapsedTime, "%f\n")
 
 #Quick
-    print("\n==== Quick Sort best case test.   Time Complexity Ω(n log (n)) - Sorted array ====")
+    print("\n==== Quick Sort average case test.   Time Complexity Ω(n log (n)) - Sorted array ====")
     comps, elapsedTime = testing(quick_sort, 'd', 5)
     
     write_file('quicksort-avg-compares.txt', comps)
     write_file('quicksort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Quick Sort average case tests.   Time Complexity Θ(n log (n)) - Sorted array ====")
+    print("\n==== Quick Sort best case tests.   Time Complexity Θ(n log (n)) - Sorted array ====")
     comps, elapsedTime = testing(quick_sort, 'r')
     
     write_file('quicksort-best-compares.txt', comps)
