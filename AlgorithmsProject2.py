@@ -185,16 +185,16 @@ def write_file(fileName, itemsList, format="%d\n"):
 def main():
     
     print("Algorithm Testing Suite")
-    print("This program will test four sorting algorithms.")
+    print("This program will test four sorting algoriths.")
     
 #Merge 
-    print("\n==== Merge Sort average case tests   Time Complexity Θ(n log (n)) - Sorted array ====")
+    print("\n==== Merge Sort average case tests   Time Complexity O(n log (n)) - Sorted array ====")
     comps, elapsedTime = testing(mergeSort, 'd', 5)
     
     write_file('mergesort-avg-compares.txt', comps)
     write_file('mergesort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Merge Sort best case tests.   Time Complexity Ω(n log (n)) - Sorted array ====")
+    print("\n==== Merge Sort best case tests.   Time Complexity O(n log (n)) - Sorted array ====")
     comps, elapsedTime = testing(mergeSort, 's')
     
     write_file('mergesort-best-compares.txt', comps)
@@ -207,19 +207,19 @@ def main():
     write_file('mergesort-worst-elapsedtimes.txt', elapsedTime, "%f\n")
 
 #Bubble
-    print("\n==== Bubble Sort averge case tests.  Time Complexity Θ(n^2) - Sorted array ====")
+    print("\n==== Bubble Sort averge case tests.  Time Complexity 0(n^2) - Sorted array ====")
     comps, elapsedTime = testing(bubble_sort, 'd')
     
     write_file('bublesort-avg-compares.txt', comps)
     write_file('bublesort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n**** Bubble Sort best case tests. - Sorted array ****")
+    print("\n**** Bubble Sort best case tests.    Time Complexity O(n) Sorted array ****")
     comps, elapsedTime = testing(bubble_sort, 's')
     
     write_file('bublesort-best-compares.txt', comps)
     write_file('bublesort-best-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n**** Bubble Sort worst case test. - Sorted reversed array ****")
+    print("\n**** Bubble Sort worst case test.    Time Complexity O(n^2) Sorted reversed array ****")
     comps, elapsedTime = testing(bubble_sort, 'r')
     
     write_file('bublesort-worst-compares.txt', comps)
@@ -227,13 +227,13 @@ def main():
 
 
 #Insertion
-    print("\n==== Insertion Sort average case tests.   Time Complexity Θ(n^2) - Sorted arrray ====")
+    print("\n==== Insertion Sort average case tests.   Time Complexity O(n^2) - Sorted arrray ====")
     comps, elapsedTime = testing(insertion_sort, 'd')
     
     write_file('insertionsort-avg-compares.txt', comps)
     write_file('insertionsort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Insertion Sort best case tests.   Time Complexity Ω(n) - Sorted array ====")
+    print("\n==== Insertion Sort best case tests.   Time Complexity O(n) - Sorted array ====")
     comps, elapsedTime = testing(insertion_sort, 's')
     
     write_file('insertionsort-best-compares.txt', comps)
@@ -246,14 +246,14 @@ def main():
     write_file('insertionsort-worst-elapsedtimes.txt', elapsedTime, "%f\n")
 
 #Quick
-    print("\n==== Quick Sort average case test.   Time Complexity Ω(n log (n)) - Sorted array ====")
-    comps, elapsedTime = testing(quick_sort, 'd', 5)
+    print("\n==== Quick Sort average case test.   Time Complexity O(n log n) - Sorted array ====")
+    comps, elapsedTime = testing(quick_sort, 'd', 6)
     
     write_file('quicksort-avg-compares.txt', comps)
     write_file('quicksort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Quick Sort best case tests.   Time Complexity Θ(n log (n)) - Sorted array ====")
-    comps, elapsedTime = testing(quick_sort, 'r')
+    print("\n==== Quick Sort best case tests.   Time Complexity O(n log n) - Sorted array ====")
+    comps, elapsedTime = testing(quick_sort, 'm')
     
     write_file('quicksort-best-compares.txt', comps)
     write_file('quicksort-best-elapsedtimes.txt', elapsedTime, "%f\n")
