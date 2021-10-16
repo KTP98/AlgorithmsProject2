@@ -1,6 +1,3 @@
-
-
-
 import time
 import random
 import sys
@@ -126,14 +123,13 @@ def quick_sort(array, begin=0, end=None):
 # d random (default) 
 # s sorted  
 # r reversed sorted
-# m merge sort worst case
+# w sort worst case
 # output: array of random integers
-# Time Complexity: Random O(n)  Sorted O(n log n) 
 
 def randomArray(size, type = 'd'):
     array = []
     
-    if type == 'm':
+    if type == 'w':
         # worst case for a merge sort is when it has to compare every element
         temp = list(range(1, size + 1)) # generate an ordered array
         odd = temp[::2] # get odd numbers 
@@ -156,8 +152,8 @@ def randomArray(size, type = 'd'):
 # The funtion will run the algorithms using random arrays of size 100, 1000, 10,000
 # and 1000000 the execution times are placed to hold the value
 
-# The array could be: random, sorted, sorted reversed, or merge worst case
-# Test could have runtimes of O(n log n) 
+# The array could be: random, sorted, sorted reversed, or worst case
+# Test could have runtimes of O(n log n), O(n), or O(n^2)
 # Output: list exection & comparison times for each test
 def testing(sortFunction, arrayType, tests = 3):
     
@@ -183,31 +179,32 @@ def write_file(fileName, itemsList, format="%d\n"):
 
 
 def main():
-    
+    print("")
     print("Algorithm Testing Suite")
-    print("This program will test four sorting algoriths.")
+    print("This program tests four sorting algorithms: Merge, Bubble, Insertion, and Quick sort.")
     
 #Merge 
-    print("\n==== Merge Sort average case tests   Time Complexity O(n log (n)) - Sorted array ====")
+    print("\n==== Merge Sort average case tests   Time Complexity O(n log n)  Random array ====")
     comps, elapsedTime = testing(mergeSort, 'd', 5)
     
     write_file('mergesort-avg-compares.txt', comps)
     write_file('mergesort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Merge Sort best case tests.   Time Complexity O(n log (n)) - Sorted array ====")
+    print("\n==== Merge Sort best case tests.   Time Complexity O(n log n) Sorted array ====")
     comps, elapsedTime = testing(mergeSort, 's')
     
     write_file('mergesort-best-compares.txt', comps)
     write_file('mergesort-best-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Merge Sort worst case tests.   Time Complexity O(n log (n)) - merge worst arrary ====")
-    comps, elapsedTime = testing(mergeSort, 'm')
+    print("\n==== Merge Sort worst case tests.   Time Complexity O(n log n) Worst arrary ====")
+    comps, elapsedTime = testing(mergeSort, 'w')
     
     write_file('mergesort-worst-compares.txt', comps)
     write_file('mergesort-worst-elapsedtimes.txt', elapsedTime, "%f\n")
+    
 
 #Bubble
-    print("\n==== Bubble Sort averge case tests.  Time Complexity 0(n^2) - Sorted array ====")
+    print("\n==== Bubble Sort averge case tests.  Time Complexity 0(n^2) Random array ====")
     comps, elapsedTime = testing(bubble_sort, 'd')
     
     write_file('bublesort-avg-compares.txt', comps)
@@ -227,13 +224,13 @@ def main():
 
 
 #Insertion
-    print("\n==== Insertion Sort average case tests.   Time Complexity O(n^2) - Sorted arrray ====")
+    print("\n==== Insertion Sort average case tests.   Time Complexity O(n^2)  Random arrray ====")
     comps, elapsedTime = testing(insertion_sort, 'd')
     
     write_file('insertionsort-avg-compares.txt', comps)
     write_file('insertionsort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Insertion Sort best case tests.   Time Complexity O(n) - Sorted array ====")
+    print("\n==== Insertion Sort best case tests.   Time Complexity O(n) Sorted array ====")
     comps, elapsedTime = testing(insertion_sort, 's')
     
     write_file('insertionsort-best-compares.txt', comps)
@@ -244,21 +241,22 @@ def main():
     
     write_file('insertionsort-worst-compares.txt', comps)
     write_file('insertionsort-worst-elapsedtimes.txt', elapsedTime, "%f\n")
+    
 
 #Quick
-    print("\n==== Quick Sort average case test.   Time Complexity O(n log n) - Sorted array ====")
-    comps, elapsedTime = testing(quick_sort, 'd', 6)
+    print("\n==== Quick Sort average case test.   Time Complexity O(n log n) Random array ====")
+    comps, elapsedTime = testing(quick_sort, 'd', 5)
     
     write_file('quicksort-avg-compares.txt', comps)
     write_file('quicksort-avg-elapsedtimes.txt', elapsedTime, "%f\n")
     
-    print("\n==== Quick Sort best case tests.   Time Complexity O(n log n) - Sorted array ====")
-    comps, elapsedTime = testing(quick_sort, 'm')
+    print("\n==== Quick Sort best case tests.   Time Complexity O(n log n)  Worst array ====")
+    comps, elapsedTime = testing(quick_sort, 'w')
     
     write_file('quicksort-best-compares.txt', comps)
     write_file('quicksort-best-elapsedtimes.txt', elapsedTime, "%f\n")
 
-    print('\n==== Quick Sort worst case tests.    Time Complexity O(n^2) Sorted reversed array - Sorted array ====')
+    print('\n==== Quick Sort worst case tests.    Time Complexity O(n^2) Sorted array ====')
     comps, elapsedTime = testing(quick_sort, 's')
    
     write_file('quicksort-worst-compares.txt', comps)
@@ -267,7 +265,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-
-# https://stackoverflow.com/questions/27116255/python-quicksort-maximum-recursion-depth
-# source for quick sort maxing out at 3 average cases and no worst case (or 3 cases when testing worst case)
