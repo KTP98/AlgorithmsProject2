@@ -166,7 +166,7 @@ def testing(sortFunction, arrayType, tests = 3):
     elapsedTime = []
     for i in range(tests):
         array = randomArray(length, arrayType)
-        print('\nTesiting with ' + str(length) + ' elements')
+        print('\nTesting with ' + str(length) + ' elements')
         t0 = time.perf_counter()
         _, comp = sortFunction(array)
         comparisons.append(comp)
@@ -185,7 +185,7 @@ def write_file(fileName, itemsList, format="%d\n"):
 def main():
     
     print("Algorithm Testing Suite")
-    print("This program will test four soring algoriths.")
+    print("This program will test four sorting algorithms.")
     
 #Merge 
     print("\n==== Merge Sort average case tests   Time Complexity Θ(n log (n)) - Sorted array ====")
